@@ -1,0 +1,50 @@
+server:
+    port: 53101
+
+# datasource
+spring:
+    datasource:
+        primary.url: jdbc:mysql://139.196.58.18:3306/rocky_socialfund?autoReconnect=true&useUnicode=true&characterEncoding=utf-8
+        primary.username: yuncai
+        primary.password: chinayuncai2468!#%
+        primary.driverClassName : com.mysql.jdbc.Driver
+        primary.initialSize: 5
+        primary.maxActive: 30
+        primary.minIdle: 10
+        primary.maxWaite: 600000
+        
+        second.url: jdbc:mysql://139.196.58.18:3306/yuncaisys?autoReconnect=true&amp;useUnicode=true&amp;charaterEncoding=utf-8
+        second.username: yuncai
+        second.password: chinayuncai2468!#%
+        second.driverClassName : com.mysql.jdbc.Driver
+        second.initialSize: 5
+        second.maxActive: 30
+        second.minIdle: 10
+        second.maxWaite: 600000
+        
+# redis
+    redis:
+      database: 2
+      host: 192.168.1.11
+      password: root
+      port: 6379
+      expire: 600
+      timeout: 10000
+      pool:
+        max-idle: 30
+        min-idle: 10
+        max-active: 20
+        max-wait: -1
+
+
+# eurker
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}:${random.value}
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://user:password@localhost:8761/eureka/
+
