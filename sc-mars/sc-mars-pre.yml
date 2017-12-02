@@ -101,4 +101,4 @@ hystrix:
 
 sc:
   galaxy:
-    name: sc3
+    name: sc2
