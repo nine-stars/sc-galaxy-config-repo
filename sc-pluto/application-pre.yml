@@ -1,5 +1,5 @@
 server:
-  port: 8889
+  port: 53002
 #################################
 ## SECURITY
 #################################
@@ -93,17 +93,6 @@ session:
 #  instance:
 #    prefer-ip-address: true
 
-
-# Hystrix
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        timeout.enabled: true
-#        isolation:
-#          strategy: THREAD
-#          thread:
-#            timeoutInMilliseconds: 3000
 
 
 #spring.cloud.loadbalancer.retry.enabled: false

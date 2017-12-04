@@ -1,5 +1,5 @@
 server:
-  port: 8889
+  port: 53002
 #################################
 ## SECURITY
 #################################
@@ -66,7 +66,7 @@ spring:
 #  devtools:
 #    restart:
 #      enabled: false
-      
+
 # LOGGING
 logging:
   level:
@@ -84,26 +84,15 @@ session:
 
 
 
-eureka:
-  client:
-    enabled: true
-    service-url:
-      defaultZone: http://user:password@localhost:8761/eureka/
-    register-with-eureka: true
-  instance:
-    prefer-ip-address: true
+#eureka:
+#  client:
+#    enabled: true
+#    service-url:
+#      defaultZone: http://user:password@localhost:8761/eureka/
+#    register-with-eureka: true
+#  instance:
+#    prefer-ip-address: true
 
-
-# Hystrix
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        timeout.enabled: true
-#        isolation:
-#          strategy: THREAD
-#          thread:
-#            timeoutInMilliseconds: 3000
 
 
 #spring.cloud.loadbalancer.retry.enabled: false
