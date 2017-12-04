@@ -1,5 +1,5 @@
 server:
-  port: 53001
+  port: 8889
 #################################
 ## SECURITY
 #################################
@@ -94,11 +94,49 @@ eureka:
     prefer-ip-address: true
 
 
+# Hystrix
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        timeout.enabled: true
+#        isolation:
+#          strategy: THREAD
+#          thread:
+#            timeoutInMilliseconds: 3000
+
+
+#spring.cloud.loadbalancer.retry.enabled: false
+
+
+ribbon:
+  ReadTimeout: 0
+  ConnectTimeout: 10
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+  OkToRetryOnAllOperations: false
+  eager-load:
+    enabled: true
+    clients: ak
+  eureka:
+    enabled: true
+
+
+
+feign:
+  hystrix:
+    enabled: true
+
 hystrix:
-  command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
-  command.default.execution.timeout.enabled: false
-
-
-sc:
-  galaxy:
-    name: sc1
+  command:
+    default:
+      execution:
+        timeout.enabled: true
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 2000
+#    强制打开熔断状态
+#    getContents:
+#      circuitBreaker:
+#        forceOpen: false
