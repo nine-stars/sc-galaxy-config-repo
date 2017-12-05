@@ -140,9 +140,9 @@ zuul:
   sensitiveHeaders:
 
   #(1)自由控制的方式，细粒度
-#  ignoredServices: '*'
-#  routes:
-#    ak: /ak/**
+  ignoredServices: '*'
+  routes:
+    ak: /ak/**
 
   #(2)key-value 映射方式
 #  routes:
