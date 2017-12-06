@@ -85,16 +85,16 @@ session:
 
 
 # Eureka
-#eureka:
-#  instance:
-#    prefer-ip-address: true
-#    instance-id: ${spring.application.name}:${server.port}:${random.value}
-#  client:
-#    enabled: true
-#    service-url:
-#      defaultZone: http://user:password@localhost:8761/eureka/
-#    register-with-eureka: true
-#    fetch-registry: true
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}:${random.value}
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://user:password@localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
 
 
 ribbon:
@@ -138,16 +138,20 @@ zuul:
     connect-timeout-millis: 0       # zuul中使用httpclient调用其他服务，这2个参数设置超时
     socket-timeout-millis: 0
   sensitiveHeaders:
+  filter:
+    root: filter
+    interval: 5
 
-  #(1)自由控制的方式，细粒度
-  ignoredServices: '*'
-  routes:
-    sc-mars: /sc-mars/**
+#  (1)自由控制的方式，细粒度
+#  ignoredServices: '*'
+#  routes:
+#    sc-mars: /sc-mars/**
 
-  #(2)key-value 映射方式
+
+#  (2)key-value 映射方式
 #  routes:
 #    user-1:
 #      path: /permission/**
-##      url: http://localhost:8888/
+#      url: http://localhost:8888/
 #      serviceId: ak
 #      stripPrefix: true
